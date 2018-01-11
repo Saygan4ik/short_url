@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UrlsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :redirect_to_initial_url
 
   def index
     @urls = current_user.urls
@@ -31,6 +31,15 @@ class UrlsController < ApplicationController
     flash[:notice] = 'Url deleted'
 
     redirect_to action: :index
+  end
+
+  def redirect_to_initial_url
+    @url = Url.find_by(short_url: params[:short_url])
+    if @url
+      redirect_to @url.initial_url
+    else
+      redirect_to action: :new
+    end
   end
 
   private

@@ -5,10 +5,12 @@ Rails.application.routes.draw do
 
   resources :urls
 
+  get ':short_url', to: 'urls#redirect_to_initial_url', short_url: /[0-9a-f]{6}/
+
   namespace :api do
-  namespace :v1 do
-    resources :urls
-  end
+    namespace :v1 do
+      resources :urls
+    end
   end
   root 'urls#new'
 end
