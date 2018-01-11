@@ -1,0 +1,17 @@
+<%= render 'links/session_links' %>
+
+<h1>Create a new short url</h1>
+
+<%= render 'errors/flash' %>
+<%= render 'errors/url_errors' %>
+
+<%= form_with model: @url, local: true do |form| %>
+  <div class="field">
+    <%= form.label :initial_url %>
+    <%= form.text_field :initial_url %>
+  </div>
+  <br>
+  <%= form.submit %>
+<% end %>
+<br>
+<%= link_to 'My urls', controller: 'urls', action: :index %>

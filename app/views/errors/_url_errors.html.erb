@@ -1,0 +1,6 @@
+<% if @url.errors.any? %>
+  <%= pluralize(@url.errors.count, "error") %> prohibited
+  <% @url.errors.full_messages.each do |msg| %>
+    <%= msg %>
+  <% end -%>
+<% end %>

@@ -1,0 +1,18 @@
+<%= render 'links/session_links' %>
+<%= render 'errors/url_errors' %>
+<%= render 'errors/flash' %>
+
+<table>
+  <tr>
+    <th>URL</th>
+    <th>Short URL</th>
+  </tr>
+  <tr>
+    <td><%= @url.initial_url %></td>
+    <td><%= root_url + @url.short_url %></td>
+  </tr>
+</table>
+
+<br>
+<%= link_to 'Create new', controller: 'urls', action: :new %>
+<%= link_to 'My urls', controller: 'urls', action: :index %>

@@ -3,5 +3,7 @@ Rails.application.routes.draw do
              path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'short_url#new'
+  resources :urls
+
+  root 'urls#new'
 end
