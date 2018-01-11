@@ -4,7 +4,7 @@ class Url < ApplicationRecord
   validates :initial_url, presence: true
   validates :initial_url, uniqueness: { scope: :user_id }
 
-  before_validation :generate_short_url
+  before_validation :generate_short_url, on: :create
 
   private
 

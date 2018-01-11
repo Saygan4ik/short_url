@@ -5,5 +5,10 @@ Rails.application.routes.draw do
 
   resources :urls
 
+  namespace :api do
+  namespace :v1 do
+    resources :urls
+  end
+  end
   root 'urls#new'
 end
