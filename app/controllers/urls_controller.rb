@@ -34,12 +34,8 @@ class UrlsController < ApplicationController
   end
 
   def redirect_to_initial_url
-    @url = Url.find_by(short_url: params[:short_url])
-    if @url
-      redirect_to @url.initial_url
-    else
-      redirect_to action: :new
-    end
+    @url = Url.find_by!(short_url: params[:short_url])
+    redirect_to @url.initial_url, status: :permanent_redirect
   end
 
   private

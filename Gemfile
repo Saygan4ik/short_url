@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise'
 gem 'has_secure_token'
+gem 'rack-attack'
+gem 'rack-cors', require: 'rack/cors'
 gem 'rubocop', require: false
 
 group :development, :test do
