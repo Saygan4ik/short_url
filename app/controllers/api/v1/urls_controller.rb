@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class UrlsController < ApiController
@@ -37,7 +39,7 @@ module Api
                  status: :not_found
         else
           @url.destroy
-          render json: {  message: 'Url deleted' },
+          render json: { message: 'Url deleted' },
                  status: :ok
         end
       end
