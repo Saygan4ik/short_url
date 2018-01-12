@@ -10,6 +10,12 @@
     <%= form.label :initial_url %>
     <%= form.text_field :initial_url %>
   </div>
+  <div class="field">
+    <%= form.radio_button(:status, 'public_url', { checked: true }) %>
+    <%= form.label(:status_public_url, 'Public url') %>
+    <%= form.radio_button(:status, 'private_url') %>
+    <%= form.label(:status_private_url, 'Private url') %>
+  </div>
   <br>
   <%= form.submit %>
 <% end %>

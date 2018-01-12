@@ -41,6 +41,6 @@ class UrlsController < ApplicationController
   private
 
   def url_params
-    params.require(:url).permit(:initial_url)
+    params.require(:url).permit(:initial_url, :status)
   end
 end

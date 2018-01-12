@@ -2,8 +2,9 @@
 
 class Url < ApplicationRecord
   belongs_to :user
+  enum status: [:public_url, :private_url]
   validates :short_url, uniqueness: true
-  validates :initial_url, presence: true
+  validates :initial_url, :status, presence: true
   validates :initial_url, uniqueness: { scope: :user_id }
   validate :minimum_quantity_urls_for_user, on: :create
 

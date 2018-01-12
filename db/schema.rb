@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180112073127) do
     t.string "short_url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status", null: false
+    t.integer "status", default: 0
     t.index ["short_url"], name: "index_urls_on_short_url"
     t.index ["user_id"], name: "index_urls_on_user_id"
   end

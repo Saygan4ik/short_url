@@ -1,5 +1,5 @@
 class AddStatusToUrls < ActiveRecord::Migration[5.1]
   def change
-    add_column :urls, :status, :string, null: false
+    add_column :urls, :status, :integer, default: 0
   end
 end
