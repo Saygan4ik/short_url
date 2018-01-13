@@ -9,6 +9,11 @@ class UrlsController < ApplicationController
 
   def new
     @url = Url.new
+    if current_user.admin?
+      @last_urls = Url.order(created_at: :desc).limit(10)
+    else
+      @last_public_urls = Url.public_url.order(created_at: :desc).limit(10)
+    end
   end
 
   def show

@@ -2,7 +2,7 @@
 
 class Url < ApplicationRecord
   belongs_to :user
-  enum status: [:public_url, :private_url]
+  enum status: %i[public_url private_url]
   validates :short_url, uniqueness: true
   validates :initial_url, :status, presence: true
   validates :initial_url, uniqueness: { scope: :user_id }
@@ -23,6 +23,6 @@ class Url < ApplicationRecord
 
   def minimum_quantity_urls_for_user
     errors.add(:user_id, 'Quantity urls greater then 10') if
-        Url.where(user_id: self.user_id).count >= 10
+        user.urls.count >= 10
   end
 end

@@ -21,3 +21,37 @@
 <% end %>
 <br>
 <%= link_to 'My urls', controller: 'urls', action: :index %>
+<br>
+<% if current_user.admin? %>
+  <section class="last-urls">
+    <h3>Last created URL's</h3>
+    <table>
+      <tr>
+        <th>URL</th>
+        <th>Short URL</th>
+      </tr>
+      <% @last_urls.each do |last_url| %>
+        <tr>
+          <td><%= last_url.initial_url %></td>
+          <td><%= root_url + last_url.short_url %></td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+<% else %>
+  <section class="last-public-urls">
+    <h3>Last created public URL's</h3>
+    <table>
+      <tr>
+        <th>URL</th>
+        <th>Short URL</th>
+      </tr>
+      <% @last_public_urls.each do |last_public_url| %>
+        <tr>
+          <td><%= last_public_url.initial_url %></td>
+          <td><%= root_url + last_public_url.short_url %></td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+<% end %>

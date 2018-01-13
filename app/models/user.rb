@@ -7,11 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
   has_many :urls, dependent: :destroy
-  before_create :set_default_role
+  enum role: %i[user admin]
 
   private
-
-  def set_default_role
-    self.role ||= 'user'
-  end
 end
