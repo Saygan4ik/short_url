@@ -4,7 +4,7 @@ class UrlsController < ApplicationController
   before_action :authenticate_user!, except: :redirect_to_initial_url
 
   def index
-    @urls = current_user.urls
+    @urls = current_user.urls.page params[:page]
   end
 
   def new
@@ -26,7 +26,7 @@ class UrlsController < ApplicationController
       flash[:alert] = 'Short url created'
       redirect_to @url
     else
-      render :new
+      redirect_to action: :new #???
     end
   end
 

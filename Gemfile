@@ -39,6 +39,7 @@ gem 'has_secure_token'
 gem 'rack-attack'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rubocop', require: false
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

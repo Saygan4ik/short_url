@@ -6,7 +6,7 @@ module Api
       before_action :authenticate_user
 
       def index
-        @urls = @user.urls
+        @urls = @user.urls.page(params[:page]).per(params[:per_page])
         render json: @urls, status: :ok
       end
 

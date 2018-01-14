@@ -1,0 +1,16 @@
+<section class="users">
+  <table>
+    <tr>
+      <th>User name</th>
+      <th>Quantity urls</th>
+      <th colspan="1"></th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.urls_count %></td>
+        <td><%= link_to 'Show urls', user_path(user) %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>
