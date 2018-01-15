@@ -1,0 +1,16 @@
+<h1>Username: <% @user.name %></h1>
+
+<table>
+  <tr>
+    <th>URL</th>
+    <th>Short URL</th>
+  </tr>
+  <% @user.urls.each do |url| %>
+    <tr>
+      <td><%= url.initial_url %></td>
+      <td><%= root_url + url.short_url %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Back", :back %>

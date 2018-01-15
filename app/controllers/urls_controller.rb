@@ -23,6 +23,8 @@ class UrlsController < ApplicationController
   def create
     @url = current_user.urls.create(url_params)
     if @url.valid?
+      current_user.urls_count += 1
+      current_user.save
       flash[:alert] = 'Short url created'
       redirect_to @url
     else
@@ -33,6 +35,8 @@ class UrlsController < ApplicationController
   def destroy
     @url = current_user.urls.find(params[:id])
     @url.destroy
+    current_user.urls_count -= 1
+    current_user.save
     flash[:notice] = 'Url deleted'
 
     redirect_to action: :index
