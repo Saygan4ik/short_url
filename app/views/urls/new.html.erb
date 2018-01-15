@@ -21,6 +21,7 @@
 <% end %>
 <br>
 <%= link_to 'My urls', controller: 'urls', action: :index %>
+<%= link_to 'My files', controller: 'userfiles', action: :index %>
 <% if current_user.admin? %>
   <%= link_to 'Users', controller: 'users/users', action: :index %>
 <% end %>

@@ -1,0 +1,5 @@
+<%= image_tag(@userfile.file.url, alt: 'File') %>
+
+<h4>Short Url: <%= root_url + @userfile.short_url %></h4>
+<br>
+<%= link_to 'Back', :back %>

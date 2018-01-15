@@ -9,11 +9,7 @@ class UrlsController < ApplicationController
 
   def new
     @url = Url.new
-    if current_user.admin?
-      @last_urls = Url.order(created_at: :desc).limit(10)
-    else
-      @last_public_urls = Url.public_url.order(created_at: :desc).limit(10)
-    end
+    last_urls
   end
 
   def show
@@ -28,7 +24,8 @@ class UrlsController < ApplicationController
       flash[:alert] = 'Short url created'
       redirect_to @url
     else
-      redirect_to action: :new #???
+      last_urls
+      render 'new'
     end
   end
 
@@ -51,5 +48,13 @@ class UrlsController < ApplicationController
 
   def url_params
     params.require(:url).permit(:initial_url, :status)
+  end
+
+  def last_urls
+    if current_user.admin?
+      @last_urls = Url.order(created_at: :desc).limit(10)
+    else
+      @last_public_urls = Url.public_url.order(created_at: :desc).limit(10)
+    end
   end
 end

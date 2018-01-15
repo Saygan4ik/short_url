@@ -7,6 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
   has_many :urls, dependent: :destroy
+  has_many :userfiles, dependent: :destroy
   enum role: %i[user admin]
 
   private

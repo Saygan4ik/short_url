@@ -34,14 +34,15 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'carrierwave-aws'
 gem 'devise'
+gem 'dotenv-rails', groups: %i[development test]
 gem 'has_secure_token'
+gem 'kaminari'
 gem 'rack-attack'
 gem 'rack-cors', require: 'rack/cors'
-gem 'rubocop', require: false
-gem 'kaminari'
 gem 'rails_admin', '~> 1.2'
-gem 'carrierwave-aws'
+gem 'rubocop', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddUrlsCountToUsers < ActiveRecord::Migration[5.1]
   def change
     change_table :users do |t|
@@ -18,4 +20,3 @@ class AddUrlsCountToUsers < ActiveRecord::Migration[5.1]
     SQL
   end
 end
-

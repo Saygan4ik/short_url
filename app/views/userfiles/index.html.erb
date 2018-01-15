@@ -1,0 +1,13 @@
+<h1>My files</h1>
+
+<div class="userfiles" style="display: flex; flex-wrap: wrap">
+  <% @userfiles.each do |userfile| %>
+    <div class="userfiles-item" style="margin-left: 20px">
+      <%= image_tag(userfile.file.url, alt: 'File', width: 200) %>
+      <p>Short Url</p>
+      <%= root_url + userfile.short_url %>
+    </div>
+  <% end %>
+</div>
+<br>
+<%= link_to 'Return to main', root_url %>
