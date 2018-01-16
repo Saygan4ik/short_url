@@ -8,7 +8,8 @@ module Api
       def index
         @userfiles = @user.userfiles.page(params[:page]).per(params[:per_page])
         render json: @userfiles,
-               serializer: PaginationSerializer,
+               each_serializer: UserfileSerializer,
+               meta: pagination_dict(@userfiles),
                status: :ok
       end
 

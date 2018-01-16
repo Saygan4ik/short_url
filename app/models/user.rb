@@ -9,6 +9,4 @@ class User < ApplicationRecord
   has_many :urls, dependent: :destroy
   has_many :userfiles, dependent: :destroy
   enum role: %i[user admin]
-
-  private
 end

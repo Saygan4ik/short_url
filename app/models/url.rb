@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Url < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   enum status: %i[public_url private_url]
   validates :short_url, uniqueness: true
   validates :initial_url, :status, presence: true

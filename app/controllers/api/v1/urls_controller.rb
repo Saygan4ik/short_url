@@ -7,7 +7,10 @@ module Api
 
       def index
         @urls = @user.urls.page(params[:page]).per(params[:per_page])
-        render json: @urls, serializer: PaginationSerializer
+        render json: @urls,
+               each_serializer: UrlSerializer,
+               meta: pagination_dict(@urls),
+               status: :ok
       end
 
       def show
